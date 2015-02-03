@@ -1,2 +1,2 @@
 # haohany.github.io
-My personal website
+My personal website: http://haohany.github.io
