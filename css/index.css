@@ -17,6 +17,9 @@ a {
 a:hover {
   color: #9ad0ff;
 }
+a:active {
+  outline: none;
+}
 
 header .navbar.navbar-default {
   font-family: "Roboto Slab", serif;
