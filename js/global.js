@@ -1,1 +1,1 @@
-$("a").each(function(){this.host!==window.location.host&&$(this).attr("target","_blank")});
+$("a").each(function(){this.host!==window.location.host&&$(this).attr("target","_blank")}),$("a").click(function(){this.blur()});
