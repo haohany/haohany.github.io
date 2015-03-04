@@ -27,13 +27,13 @@ a {
 
 html {
 	font-family: sans-serif;
-	font-size: 16px;
+	font-size: 15px;
 }
 
 body {
 	width: 900px;
 	margin: auto;
-	padding: 40px;
+	padding: 30px 30px 0 30px;
 }
 
 h1, h2, h3, em {
@@ -45,7 +45,7 @@ h1, h2 {
 	color: #b00;
 }
 h1 {
-	font-size: 2rem;
+	font-size: 1.8rem;
 }
 h2 {
 	font-size: 1.3rem;
@@ -111,10 +111,14 @@ section {
 	float: right;
 }
 
+.overview {
+	margin: 0.4rem 0;
+	color: #333;
+}
+
 .list {
 	margin-left: 17px;
 	list-style: disc;
-
 	li {
 		margin-top: 0.3rem;
 	}
@@ -123,12 +127,30 @@ section {
 ul.skills {
 	float: left;
 	width: 50%;
-
 	li {
 		margin-top: 0.4rem;
-		
 		&:first-child {
 			margin-top: 0;
+		}
+	}
+}
+
+.skill {
+	margin-top: 0.4rem;
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+table {
+	border: none;
+	margin-top: -0.5rem;
+	td {
+		vertical-align: top;
+		padding-top: 0.5rem;
+		&:first-child {
+			font-weight: bold;
+			padding-right: 1rem;
 		}
 	}
 }
