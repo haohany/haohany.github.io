@@ -33,7 +33,6 @@ html, body {
 	font-family: $open-sans;
 	font-size: 16px;
 	color: $font-color;
-	height: 100%;
 }
 
 h1, h2, h3 {
@@ -90,7 +89,6 @@ header .navbar.navbar-default {
 }
 
 .page {
-	height: 100%;
 	min-height: 400px;
 	padding: 0 3%;
 	.heading {
@@ -152,4 +150,3 @@ header .navbar.navbar-default {
 		}
 	}
 }
-

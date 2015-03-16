@@ -1,3 +1,6 @@
+// Let .page fill the whole window
+$('.page').css('height', $(window).height());
+
 function checkNavBarPosition() {
 	var activeAnchor = $(".navbar-nav .active a")[0];
     if (activeAnchor.hash === "#hero") {
@@ -32,7 +35,6 @@ $(window).on("scroll resize", function() {
 
 // mouse wheel scroll by page 
 // $(window).on("wheel", function(event) { jQuery doesn't work
-/*
 window.addEventListener("wheel", function wheelHandler(event) {
 	var viewTop = $(window).scrollTop();
 	var target;
@@ -68,7 +70,7 @@ window.addEventListener("wheel", function wheelHandler(event) {
 
     	event.preventDefault();
     }
-});*/
+});
 
 // smooth scroll
 $('a[href*=#]:not([href=#])').click(function() {
