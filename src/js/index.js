@@ -14,16 +14,13 @@ checkNavBarPosition();
 
 // scroll spy
 $(window).on("scroll resize", function() {
-	var viewHeight = $(window).height();
-	var viewTop = $(window).scrollTop();
-    var viewBottom = viewTop + viewHeight;
+    var mid = $(window).scrollTop() + $(window).height() / 2;
 
     $(".page").each(function() {
     	var elemTop = $(this).offset().top;
     	var elemBottom = elemTop + $(this).outerHeight();
-    	var inViewHeight = Math.min(viewBottom, elemBottom) - Math.max(viewTop, elemTop);
 
-    	if (inViewHeight > viewHeight / 2) {
+        if (elemTop < mid && elemBottom > mid) {
     		$(".navbar-nav .active").removeClass("active");
     		var hash = "#" + $(this).attr("id");
     		$(".navbar-nav [href=" + hash + "]").parent().addClass("active");
