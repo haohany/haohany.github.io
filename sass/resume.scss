@@ -1,11 +1,9 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:700,400);
 @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono);
 
-$open-sans: 'Open Sans', sans-serif;
 $roboto-slab: 'Roboto Slab', serif;
 $ubuntu-mono: 'Ubuntu Mono', monospace;
-$color: #333;
+$color: #111;
 
 * {
 	box-sizing: border-box;
@@ -20,7 +18,6 @@ ul {
 a {
 	color: #337ab7;
 	text-decoration: none;
-
 	&:hover {
 		color: #23527c;
 	}
@@ -38,13 +35,15 @@ html {
 body {
 	width: 900px;
 	margin: auto;
-	padding: 30px;
-	padding-bottom: 60px;
+	padding: 60px;
+	@media print {
+		padding: 30px;
+	}
 	color: $color;
 	background: white;
 }
 
-h1, h2, h3, em {
+h1, h2, h3 {
 	font-family: $roboto-slab;
 }
 h1, h2 {
@@ -58,6 +57,7 @@ h2 {
 	font-size: 1.3rem;
 }
 h3 {
+	display: inline-block;
 	font-size: 1.1rem;
 }
 
@@ -67,8 +67,7 @@ header {
 	line-height: 1.5;
 	h1 {
 		display: inline-block;
-		vertical-align: bottom;
-		padding-bottom: 1rem;
+		vertical-align: top;
 	}
 	.info {
 		font-family: $ubuntu-mono;
@@ -105,11 +104,15 @@ section {
 				margin: 0;
 			}
 			.date {
-				color: lighten($color, 15%);
+				float: right;
+			}
+			.org {
+				font-family: $roboto-slab;
+				font-style: italic;
 			}
 			.overview {
 				margin: 0.3rem 0;
-				color: lighten($color, 15%);
+				// color: lighten($color, 20%);
 			}
 			.list {
 				margin-left: 18px;
