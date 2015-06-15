@@ -1,0 +1,22 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:700,400);
+
+body {
+	width: 700px;
+	margin: auto;
+	padding: 50px;
+	font-family: 'Roboto Slab', serif;
+	font-size: 16px;
+	color: #333;
+}
+
+a {
+	color: #337ab7;
+	text-decoration: none;
+	&:hover {
+		color: #23527c;
+	}
+}
+
+li {
+	margin: 5px 0;
+}
