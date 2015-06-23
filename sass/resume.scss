@@ -62,23 +62,22 @@ h3 {
 }
 
 header {
-	font-size: 0; /* remove white space between inline blocks */
 	margin-bottom: 1rem;
 	line-height: 1.5;
-	h1 {
-		display: inline-block;
-		vertical-align: top;
-	}
-	.info {
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	@mixin info {
 		font-family: $ubuntu-mono;
 		font-size: 1.1rem;
 	}
-	#social-info {
-		display: inline-block;
-		margin-left: 5%;
+	.social {
+		@include info;
+		margin-left: -25%;
 	}
-	#contact-info {
-		float: right;
+	.contact {
+		@include info;
 		text-align: right;
 	}
 }

@@ -65,25 +65,30 @@ h3 {
 }
 
 header {
-  font-size: 0;
-  /* remove white space between inline blocks */
   margin-bottom: 1rem;
   line-height: 1.5;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
-header h1 {
-  display: inline-block;
-  vertical-align: top;
-}
-header .info {
+header .social {
   font-family: "Ubuntu Mono", monospace;
   font-size: 1.1rem;
+  margin-left: -25%;
 }
-header #social-info {
-  display: inline-block;
-  margin-left: 5%;
-}
-header #contact-info {
-  float: right;
+header .contact {
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 1.1rem;
   text-align: right;
 }
 
