@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <style>
+    .events {
+      text-align: center;
+    }
+    .event {
+      display: inline-block;
+      /*vertical-align: middle;*/
+      width: 200px;
+      height: 160px;
+      margin: 10px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      background: #ECF0F1;
+      color: #34495e;
+    }
+    .event h4 {
+      margin: 15px 0;
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script>
+    // populate events from events.json
+    d3.json('events.json', function(error, data) {
+      var $events = $('.events');
+
+      if (error) {
+        $events.append(error);
+        return;
+      }
+
+      data.events.forEach(function(event) {
+        var $occasion = $('<h4/>').addClass('occasion').text(event.occasion);
+        var $invited_count = $('<h4/>').addClass('invited_count').text(event.invited_count);
+        var $date = $('<h4/>').addClass('date').text([event.month, event.day, event.year].join("/"));
+
+        var $event = $('<div/>').addClass('event');
+        $event.append($occasion);
+        $event.append($invited_count);
+        $event.append($date);
+
+        $events.append($event);
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="events container">
+    <!-- populate from events.json -->
+  </div>
+</body>
+</html>
