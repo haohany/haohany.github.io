@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>No iFrame Test</title>
+  <link rel="stylesheet" href="ox-test.css">
+</head>
+<body class="clearfix">
+  <header><h2>No iFrame Test</h2></header>
+  <main><h2>Main Content</h2></main>
+  <div id="sidebar">
+    <h2>Ad Area</h2>
+    <script type="text/javascript">
+      var OX_config = {
+        rich_media: true,
+        buster_path: "/ox-buster.html"
+      };
+      var OX_ads = OX_ads || [];
+      OX_ads.push({
+        // forceUnframed: true,
+        gw: "http://ox-d.ssponly.servedbyopenx.com/w",
+        auid: "538035219"
+      });
+    </script>
+    <script type="text/javascript" src="http://dev:8000/w/1.0/jstag"></script>
+  </div>
+</body>
+</html>

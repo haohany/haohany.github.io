@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  height: 100%;
+}
+header, main, #sidebar {
+  padding: 10px 20px;
+}
+header {
+  background: #acc;
+}
+main {
+  background: #cac;
+  float: right;
+  width: 50%;
+  padding-bottom: 300px;
+}
+#sidebar {
+  background: #cca;
+  float: left;
+  width: 50%;
+}
+h1, h2 {
+  text-align: center;
+}
+iframe {
+  width: 90%;
+  height: 250px;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}

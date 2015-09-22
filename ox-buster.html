@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    window.parent.postMessage("Buster found!", "*");
+    
+    attachListener(window.parent.parent, "message", function(event) {
+      // only process message from the iframe to be busted
+      if (event.source === window.parent) {
+        this.OX_config = JSON.parse(event.data.config);
+        this.OX_ads = JSON.parse(event.data.ads);
+        
+        var adContainer = html2DOM(event.data.html);
+        var adScript = createScript({src: event.data.scriptSrc});
+        adContainer.appendChild(adScript);
+        
+        var bustedFrame = getBustedFrame();
+        bustedFrame.parentNode.insertBefore(adContainer, bustedFrame);
+        bustedFrame.style.display = "none";
+        console.log("Hide unfriendly iframe and insert ad in the parent");
+        console.log("If not displayed, check if you disabled adblock");
+        console.log("");
+      }
+    });
+    
+    function attachListener(target, type, listener) {
+      if (target.addEventListener) {
+        target.addEventListener(type, listener, false);
+      } else if (target.attachEvent) {
+        target.attachEvent("on" + type, listener);
+      }
+    }
+    
+    function html2DOM(html) {
+      var wrapper = document.createElement("div");
+      wrapper.innerHTML = html;
+      return wrapper.firstChild;
+    }
+    
+    function getBustedFrame() {
+      var frames = window.parent.parent.document.getElementsByTagName("iframe");
+      for (var i = 0; i < frames.length; i++) {
+        var frame = frames[i];
+        if (frame.contentWindow === window.parent) {
+          return frame;
+        }
+      }
+    }
+    
+    function createScript(init) {
+      var script = document.createElement("script");
+      init.id && (script.id = init.id);
+      init.src && (script.src = init.src);
+      return script;
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
