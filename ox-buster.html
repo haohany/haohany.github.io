@@ -11,7 +11,7 @@
     attachListener(window.parent.parent, "message", function(event) {
       // only process message from the iframe to be busted
       if (!event.source) {
-        console.log("OOPS, no source!")
+        console.log("OOPS, no source!");
       }
       if (event.source === window.parent) {
         this.OX_config = JSON.parse(event.data.config);
