@@ -14,6 +14,8 @@
         console.log("OOPS, no source!");
       }
       if (event.source === window.parent) {
+        var a = 1;
+        this.skd = 2;
         this.OX_config = JSON.parse(event.data.config);
         this.OX_ads = JSON.parse(event.data.ads);
         
