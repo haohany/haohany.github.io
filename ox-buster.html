@@ -3,10 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <script>
+    if (!window.console) {
+      console = {log: function(){}};
+    }
     window.parent.postMessage("Buster found!", "*");
     
     attachListener(window.parent.parent, "message", function(event) {
       // only process message from the iframe to be busted
+      if (!event.source) {
+        console.log("OOPS, no source!")
+      }
       if (event.source === window.parent) {
         this.OX_config = JSON.parse(event.data.config);
         this.OX_ads = JSON.parse(event.data.ads);
