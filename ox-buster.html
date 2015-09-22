@@ -14,8 +14,8 @@
         console.log("OOPS, no source!");
       }
       if (event.source === window.parent) {
-        // this.OX_config = JSON.parse(event.data.config);
-        // this.OX_ads = JSON.parse(event.data.ads);
+        this.OX_config = JSON.parse(event.data.config);
+        this.OX_ads = JSON.parse(event.data.ads);
         
         var adContainer = html2DOM(event.data.html);
         var adScript = createScript({src: event.data.scriptSrc});
