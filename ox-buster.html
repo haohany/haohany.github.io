@@ -16,6 +16,8 @@
       ].join(":");
       console.log(timestamp + " " + s);
     }
+    
+    logWithTime("Buster found")
     window.parent.postMessage("Buster found!", "*");
     
     attachListener(window.parent.parent, "message", function(event) {
