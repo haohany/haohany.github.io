@@ -22,9 +22,6 @@
     
     attachListener(window.parent.parent, "message", function(event) {
       // only process message from the iframe to be busted
-      if (!event.source) {
-        logWithTime("OOPS, no source!");
-      }
       if (event.source === window.parent) {
         var msg = JSON.parse(event.data);
         
@@ -40,16 +37,13 @@
           ". If not displayed, check if you disabled adblock");
         console.log("");
         var bustedFrame = getBustedFrame();
-        if (bustedFrame) {
-          logWithTime("Found frame to be busted");
-        }
-        bustedFrame.parentNode.insertBefore(adContainer, bustedFrame);
-        // Append adScript after adContainer is in DOM to avoid IE quirks
-        // IE 8 and 9 will execute the script once it is appended to
-        // an element even if it is not in DOM
-        bustedFrame.parentNode.insertBefore(adScript, bustedFrame);
         bustedFrame.style.display = "none";
-        // adContainer.appendChild(adScript);
+        bustedFrame.parentNode.insertBefore(adContainer, bustedFrame);
+        // Append adScript after adContainer is in DOM to avoid IE8 quirks
+        // IE8 will execute the script once it is appended to an element
+        // even if it is not in DOM
+        adContainer.appendChild(adScript);
+        // bustedFrame.parentNode.insertBefore(adScript, bustedFrame);
         logWithTime("Busted!");
       }
     });
