@@ -27,6 +27,9 @@
       }
       if (event.source === window.parent) {
         var msg = JSON.parse(event.data);
+        if (this !== window.parent.parent) {
+          logWithTime("What the hell, not equal!!!");
+        }
         this.OX_config = msg.config;
         this.OX_ads = msg.ads;
         
