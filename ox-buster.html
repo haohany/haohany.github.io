@@ -6,12 +6,22 @@
     if (!window.console) {
       console = {log: function(){}};
     }
+    function logWithTime(s) {
+      var now = new Date();
+      var timestamp = [
+        now.getHours(),
+        now.getMinutes(),
+        now.getSeconds(),
+        now.getMilliseconds()
+      ].join(":");
+      console.log(timestamp + " " + s);
+    }
     window.parent.postMessage("Buster found!", "*");
     
     attachListener(window.parent.parent, "message", function(event) {
       // only process message from the iframe to be busted
       if (!event.source) {
-        console.log("OOPS, no source!");
+        logWithTime("OOPS, no source!");
       }
       if (event.source === window.parent) {
         var msg = JSON.parse(event.data);
@@ -22,8 +32,8 @@
         var adScript = createScript({src: msg.scriptSrc});
         adContainer.appendChild(adScript);
         
-        console.log("Hide unfriendly iframe and insert ad in the parent");
-        console.log("If not displayed, check if you disabled adblock");
+        logWithTime("Hide unfriendly iframe and insert ad in the parent" +
+          ". If not displayed, check if you disabled adblock");
         console.log("");
         var bustedFrame = getBustedFrame();
         bustedFrame.parentNode.insertBefore(adContainer, bustedFrame);
