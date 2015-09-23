@@ -17,7 +17,7 @@
       console.log(timestamp + " " + s);
     }
     
-    logWithTime("Buster found")
+    logWithTime("Buster found");
     window.parent.postMessage("Buster found!", "*");
     
     attachListener(window.parent.parent, "message", function(event) {
@@ -32,14 +32,17 @@
         
         var adContainer = html2DOM(msg.html);
         var adScript = createScript({src: msg.scriptSrc});
-        adContainer.appendChild(adScript);
         
         logWithTime("Hide unfriendly iframe and insert ad in the parent" +
           ". If not displayed, check if you disabled adblock");
         console.log("");
         var bustedFrame = getBustedFrame();
-        bustedFrame.parentNode.insertBefore(adContainer, bustedFrame);
         bustedFrame.style.display = "none";
+        bustedFrame.parentNode.insertBefore(adContainer, bustedFrame);
+        // Append adScript after adContainer is in DOM to avoid IE quirks
+        // IE 8 and 9 will execute the script once it is appended to
+        // an element even if it is not in DOM
+        adContainer.appendChild(adScript);
       }
     });
     
