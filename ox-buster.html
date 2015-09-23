@@ -14,13 +14,12 @@
         console.log("OOPS, no source!");
       }
       if (event.source === window.parent) {
-        var a = 1;
-        this.skd = 2;
-        this.OX_config = JSON.parse(event.data.config);
-        this.OX_ads = JSON.parse(event.data.ads);
+        var msg = JSON.parse(event.data);
+        this.OX_config = msg.config);
+        this.OX_ads = msg.ads);
         
-        var adContainer = html2DOM(event.data.html);
-        var adScript = createScript({src: event.data.scriptSrc});
+        var adContainer = html2DOM(msg.html);
+        var adScript = createScript({src: msg.scriptSrc});
         adContainer.appendChild(adScript);
         
         var bustedFrame = getBustedFrame();
