@@ -15,8 +15,8 @@
       }
       if (event.source === window.parent) {
         var msg = JSON.parse(event.data);
-        this.OX_config = msg.config);
-        this.OX_ads = msg.ads);
+        this.OX_config = msg.config;
+        this.OX_ads = msg.ads;
         
         var adContainer = html2DOM(msg.html);
         var adScript = createScript({src: msg.scriptSrc});
