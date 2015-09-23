@@ -27,11 +27,11 @@
       }
       if (event.source === window.parent) {
         var msg = JSON.parse(event.data);
-        if (this !== window.parent.parent) {
-          logWithTime("What the hell, not equal!!!");
-        }
-        this.OX_config = msg.config;
-        this.OX_ads = msg.ads;
+        
+        // Can't use 'this' to replace 'window.parent.parent' here
+        // In IE attachEvent, 'this' always refers to 'window'
+        window.parent.parent.OX_config = msg.config;
+        window.parent.parent.OX_ads = msg.ads;
         
         var adContainer = html2DOM(msg.html);
         var adScript = createScript({src: msg.scriptSrc});
