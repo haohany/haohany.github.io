@@ -42,8 +42,8 @@
         // Append adScript after adContainer is in DOM to avoid IE8 quirks
         // IE8 will execute the script once it is appended to an element
         // even if it is not in DOM
-        adContainer.appendChild(adScript);
-        // bustedFrame.parentNode.insertBefore(adScript, bustedFrame);
+        // adContainer.appendChild(adScript);
+        bustedFrame.parentNode.insertBefore(adScript, bustedFrame);
         logWithTime("Busted!");
       }
     });
