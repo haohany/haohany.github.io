@@ -37,6 +37,9 @@
           ". If not displayed, check if you disabled adblock");
         console.log("");
         var bustedFrame = getBustedFrame();
+        if (bustedFrame) {
+          logWithTime("Found frame to be busted");
+        }
         bustedFrame.parentNode.insertBefore(adContainer, bustedFrame);
         // Append adScript after adContainer is in DOM to avoid IE quirks
         // IE 8 and 9 will execute the script once it is appended to
@@ -44,6 +47,7 @@
         bustedFrame.parentNode.insertBefore(adScript, bustedFrame);
         bustedFrame.style.display = "none";
         // adContainer.appendChild(adScript);
+        logWithTime("Busted!");
       }
     });
     
