@@ -22,7 +22,7 @@
     
     attachListener(window.parent.parent, "message", function(event) {
       // only process message from the iframe to be busted
-      if (event.source === window.parent) {
+      if (event.source == window.parent) {
         var msg = JSON.parse(event.data);
         
         // Can't use 'this' to replace 'window.parent.parent' here
@@ -42,8 +42,8 @@
         // Append adScript after adContainer is in DOM to avoid IE8 quirks
         // IE8 will execute the script once it is appended to an element
         // even if it is not in DOM
-        // adContainer.appendChild(adScript);
-        bustedFrame.parentNode.insertBefore(adScript, bustedFrame);
+        adContainer.appendChild(adScript);
+        // bustedFrame.parentNode.insertBefore(adScript, bustedFrame);
         logWithTime("Busted!");
       }
     });
@@ -66,7 +66,7 @@
       var frames = window.parent.parent.document.getElementsByTagName("iframe");
       for (var i = 0; i < frames.length; i++) {
         var frame = frames[i];
-        if (frame.contentWindow === window.parent) {
+        if (frame.contentWindow == window.parent) {
           return frame;
         }
       }
