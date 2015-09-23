@@ -22,12 +22,12 @@
         var adScript = createScript({src: msg.scriptSrc});
         adContainer.appendChild(adScript);
         
-        var bustedFrame = getBustedFrame();
-        bustedFrame.parentNode.insertBefore(adContainer, bustedFrame);
-        bustedFrame.style.display = "none";
         console.log("Hide unfriendly iframe and insert ad in the parent");
         console.log("If not displayed, check if you disabled adblock");
         console.log("");
+        var bustedFrame = getBustedFrame();
+        bustedFrame.parentNode.insertBefore(adContainer, bustedFrame);
+        bustedFrame.style.display = "none";
       }
     });
     
