@@ -1065,9 +1065,6 @@ OX.utils = OX.utils || function(window, document, navigator) {
           });
 
       ifrm = createFrameElement(id, width, height);
-      if (useAlt) {
-        ifrm.src = altIframeSrc;
-      }
       if (opts.replace) {
         self.replace(hook, ifrm);
       } else {
@@ -4246,7 +4243,7 @@ OX.chains = OX.chains || function() {
   OX.init();
 
   // set gateway and media type every time TODO need this?
-  OX.setGateway("http://dev:8000/w");
+  OX.setGateway("http://u-dev.openx.net:8000/w");
 
   // Execute any pre-queued 'hooks'. These hooks are
   // executed by an instance of taglib on the page.
