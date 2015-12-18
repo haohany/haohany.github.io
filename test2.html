@@ -12,7 +12,13 @@
       width : 300,
       height : 300,
       headHTML : '',
-      bodyHTML : 'This is an ad. It is in an iframe. Check the source.'
+      bodyHTML : 'This is an ad. It is in an iframe. Check the source.',
+      onFinish: function() {
+        var name = document.getElementsByTagName('iframe')[0].name;
+        var div = document.createElement('div');
+        div.innerHTML = 'The name of the ad frame should be test, the real value is ' + name;
+        document.body.appendChild(div);
+      }
     });
   </script>
 </body>
