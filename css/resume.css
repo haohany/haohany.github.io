@@ -32,7 +32,7 @@ html {
 body {
   width: 900px;
   margin: auto;
-  padding: 60px;
+  padding: 60px 80px;
   color: #111;
   background: white;
 }
@@ -48,7 +48,7 @@ h1, h2, h3 {
 
 h1, h2 {
   font-style: italic;
-  color: #900;
+  /* color: #900; */
 }
 
 h1 {
@@ -68,18 +68,9 @@ header {
   margin-bottom: 1rem;
   line-height: 1.5;
   overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+	align-items: center;
+	justify-content: space-between;
 }
 header .social {
   font-family: "Ubuntu Mono", monospace;
@@ -115,10 +106,11 @@ section .col-right .item {
 section .col-right .item:first-child {
   margin: 0;
 }
-section .col-right .item .date {
-  float: right;
+section .col-right .date {
+  font-family: "Roboto Slab", serif;
+  /* float: right; */
 }
-section .col-right .item .org {
+section .col-right .org {
   font-family: "Roboto Slab", serif;
   font-style: italic;
 }
